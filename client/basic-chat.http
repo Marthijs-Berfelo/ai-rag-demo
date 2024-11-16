@@ -1,0 +1,4 @@
+### GET message for prompt
+GET {{base-url}}{{basic-chat-uri}}?prompt="When was the rolling stones first album released"
+
+###

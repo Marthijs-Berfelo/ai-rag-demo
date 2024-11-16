@@ -23,15 +23,15 @@ configurations {
 repositories {
     mavenCentral()
     maven { url = uri("https://repo.spring.io/milestone") }
+    maven { url = uri("https://repo.spring.io/snapshot") }
 }
 
-extra["springAiVersion"] = "1.0.0-M3"
+extra["springAiVersion"] = "1.0.0-SNAPSHOT"
 extra["springModulithVersion"] = "1.2.4"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -39,19 +39,16 @@ dependencies {
     implementation("org.springframework.ai:spring-ai-ollama-spring-boot-starter")
     implementation("org.springframework.ai:spring-ai-pgvector-store-spring-boot-starter")
     implementation("org.springframework.modulith:spring-modulith-starter-core")
+    implementation("org.springframework.boot:spring-boot-starter-web")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("org.springframework.modulith:spring-modulith-actuator")
     runtimeOnly("org.springframework.modulith:spring-modulith-observability")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.springframework.boot:spring-boot-testcontainers")
-    testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.ai:spring-ai-spring-boot-testcontainers")
     testImplementation("org.springframework.modulith:spring-modulith-starter-test")
-    testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:ollama")
-    testImplementation("org.testcontainers:postgresql")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 

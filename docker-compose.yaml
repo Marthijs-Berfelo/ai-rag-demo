@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  ollama:
+    image: ollama/ollama
+    ports:
+      - '11434:11434'
+    volumes:
+      - './mounts/ollama:/root/.ollama'
+  pg-vector:
+    image: pgvector/pgvector:pg16
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_PASSWORD=ai-rag-demo
+      - POSTGRES_USER=ai-rag-demo
+      - POSTGRES_DB=ai-rag-demo
