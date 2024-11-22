@@ -26,8 +26,9 @@ repositories {
     maven { url = uri("https://repo.spring.io/snapshot") }
 }
 
-extra["springAiVersion"] = "1.0.0-SNAPSHOT"
-extra["springModulithVersion"] = "1.2.4"
+//extra["springAiVersion"] = "1.0.0-SNAPSHOT"
+extra["springAiVersion"] = "1.0.0-M3"
+extra["springModulithVersion"] = "1.2.5"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -37,18 +38,20 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("org.springframework.ai:spring-ai-ollama-spring-boot-starter")
-    implementation("org.springframework.ai:spring-ai-pgvector-store-spring-boot-starter")
+    implementation("org.springframework.ai:spring-ai-weaviate-store-spring-boot-starter")
+    implementation("org.springframework.ai:spring-ai-tika-document-reader")
     implementation("org.springframework.modulith:spring-modulith-starter-core")
+    implementation("org.springframework.modulith:spring-modulith-starter-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-web")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("org.springframework.modulith:spring-modulith-actuator")
     runtimeOnly("org.springframework.modulith:spring-modulith-observability")
+    runtimeOnly("org.springframework.boot:spring-boot-docker-compose")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.ai:spring-ai-spring-boot-testcontainers")
     testImplementation("org.springframework.modulith:spring-modulith-starter-test")
-    testImplementation("org.testcontainers:ollama")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 

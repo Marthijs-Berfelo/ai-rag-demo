@@ -1,4 +1,21 @@
 ### GET message for prompt
-GET {{base-url}}{{basic-chat-uri}}?prompt="When was the rolling stones first album released"
+GET {{base-url}}{{basic-chat-uri}}?
+    prompt="When was the rolling stones first album released"
+Accept: text/event-stream
+
+### GET message for prompt: 'Can yuo tell me a dad joke?'
+GET {{base-url}}{{basic-chat-uri}}?
+    prompt="Can yuo tell me a dad joke?"
+Accept: text/event-stream
+
+### GET message for prompt: 'Can yuo tell me another dad joke?'
+GET {{base-url}}{{basic-chat-uri}}?
+    prompt="Can yuo tell me another dad joke?"
+Accept: text/event-stream
+
+### GET message for prompt: 'What does EDSN do?'
+GET {{base-url}}{{basic-chat-uri}}?
+    prompt="What does EDSN mean?"
+Accept: text/event-stream
 
 ###

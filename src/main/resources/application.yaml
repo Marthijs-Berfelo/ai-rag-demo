@@ -7,12 +7,40 @@ spring:
     password: ai-rag-demo
   ai:
     vectorstore:
-      pgvector:
-        dimensions: 1536
-        distance-type: cosine_distance
-        index-type: hnsw
+      weaviate:
+        host: localhost:8181
     ollama:
+      init:
+        pull-model-strategy: when_missing
+        timeout: 1h
+        max-retries: 1
+        chat:
+          additional-models:
+            - llama3.1
+          include: true
+        embedding:
+          additional-models:
+            - llama3.1
+          include: true
       chat:
-        model: llama3.1
+        model: mistral
       embedding:
-        model: llama3.1
+        model: mistral
+  modulith:
+    events:
+      jdbc:
+        schema-initialization:
+          enabled: true
+    republish-outstanding-events-on-restart: true
+
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    modulith:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'

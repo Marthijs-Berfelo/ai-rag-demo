@@ -1,0 +1,13 @@
+### POST RAG initialization
+POST {{base-url}}{{rag-init-uri}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "directory": "edsn-info"
+}
+
+### GET message for prompt: 'What does EDSN do?'
+GET {{base-url}}{{rag-chat-uri}}?
+    prompt="What does EDSN mean?"
+Accept: text/event-stream
